@@ -1,9 +1,5 @@
 pipeline {
-  environment {
-    imagename = "jenkinstest"
-    registryCredential = 'test'
-    dockerImage = ''
-  }
+
   tools{
     maven '3.8.5'
   }
