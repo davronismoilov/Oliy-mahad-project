@@ -5,7 +5,7 @@ services:
     image: oliy-mahad-user
     build: ./
     ports:
-      - "9090:9090"
+      - "9090:8080"
     volumes:
       - "$PWD:/test_volume111"
 
