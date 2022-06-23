@@ -24,6 +24,7 @@ import uz.oliymahad.course.repository.group.GroupUsersRepository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -103,7 +104,7 @@ public class GroupService {
     public  RestAPIResponse getGroupPage(Pageable page) {
         Page<GroupEntity> groupEntities = groupRepository.findAll(page);
         List<GroupSectionDto> list = groupEntities.getContent().size() > 0 ?
-                groupEntities.getContent().stream().map(u -> modelMapper.map(u, GroupSectionDto.class)).toList() :
+                groupEntities.getContent().stream().map(u -> modelMapper.map(u, GroupSectionDto.class)).collect(Collectors.toList()) :
                 new ArrayList<>();
         PageImpl<GroupSectionDto> groupResponseDtos = new PageImpl<>(list, groupEntities.getPageable(), groupEntities.getTotalPages());
         return new RestAPIResponse("Group List",true,200,groupResponseDtos);
