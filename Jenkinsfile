@@ -1,5 +1,10 @@
 pipeline {
-   tools{
+  environment {
+    imagename = "jenkinstest"
+    registryCredential = 'test'
+    dockerImage = ''
+  }
+  tools{
     maven '3.8.5'
   }
   agent any
@@ -16,14 +21,13 @@ pipeline {
     stage("package") {
       steps{
        sh 'mvn clean install'
-
-
+       sh 'echo ishladi'
+       sh 'pwd'
       }
     }
 
     stage("docker run") {
       steps{
-      sh 'echo bu ham'
      sh 'docker-compose ps'
      sh 'docker-compose rm'
      sh 'docker-compose build'

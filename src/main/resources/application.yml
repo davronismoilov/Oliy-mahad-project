@@ -4,7 +4,7 @@ server:
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://postgresqldb:5432/oliy-mahad
+    url: jdbc:postgresql://postgresqldb:5432/task
     username: postgres
     password: postgres
   jpa:
