@@ -4,9 +4,9 @@ server:
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://postgresqldb:5432/task
+    url: jdbc:postgresql://oily-mahad.cqixqflfpqer.us-east-1.rds.amazonaws.com:5432/oliymahad
     username: postgres
-    password: postgres
+    password: oliymahad123!
   jpa:
     open-in-view: false
     hibernate:

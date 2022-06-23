@@ -2,19 +2,9 @@ version: '3.1'
 services:
   app:
     container_name: oliy-mahad
-    image: oliy-mahad:1.0
+    image: oliy-mahad:1.1
     build: ./
     ports:
-      - "9090:8080"
+      - "9090:9090"
     volumes:
-      - "$PWD:/test"
-    depends_on:
-     - postgresqldb
-  postgresqldb:
-    image: postgres
-    ports:
-      - "5432:5432"
-    environment:
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_DB=task
+      - "$PWD:/oliy_mahad"
