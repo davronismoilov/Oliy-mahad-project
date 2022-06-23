@@ -1,7 +1,8 @@
 FROM openjdk:11
 
-COPY target/oliymahad.jar app1.jar
+COPY target/oliymahad.jar app.jar
 
 EXPOSE 9090
 
-ENTRYPOINT ["java", "-jar", "/app1.jar"]
+ENTRYPOINT ["java", "-jar", "/app.jar"]
+
