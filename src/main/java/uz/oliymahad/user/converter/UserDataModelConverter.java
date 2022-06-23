@@ -8,6 +8,7 @@ import uz.oliymahad.user.model.entity.UserEntity;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 public abstract class UserDataModelConverter {
@@ -16,7 +17,7 @@ public abstract class UserDataModelConverter {
     public static Page<UserDataResponse> converter(Page<UserEntity> source){
 
         List<UserDataResponse> list = source.getContent().size() > 0 ?
-                source.getContent().stream().map(u -> modelMapper.map(u, UserDataResponse.class)).toList() :
+                source.getContent().stream().map(u -> modelMapper.map(u, UserDataResponse.class)).collect(Collectors.toList()) :
                 new ArrayList<>();
         return new PageImpl<>(list,source.getPageable(), source.getTotalPages());
     }
@@ -24,7 +25,7 @@ public abstract class UserDataModelConverter {
 
     public static List<UserDataResponse> convert(List<UserEntity> source){
         List<UserDataResponse> list = source.size() > 0 ?
-                source.stream().map(u -> modelMapper.map(u, UserDataResponse.class)).toList():
+                source.stream().map(u -> modelMapper.map(u, UserDataResponse.class)).collect(Collectors.toList()):
                 new ArrayList<>();
         return list;
     }

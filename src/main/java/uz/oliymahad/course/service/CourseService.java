@@ -18,6 +18,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import static java.util.stream.Collectors.toList;
+
 
 @Service
 @RequiredArgsConstructor
@@ -45,7 +47,7 @@ public class CourseService implements BaseService<CourseDto,Long, CourseEntity, 
     public RestAPIResponse getLists(Pageable pageable) {
         Page<CourseEntity> courseEntities = courseRepository.findAll(pageable);
         List<CourseSectionDto> list = courseEntities.getContent().size() > 0 ?
-                courseEntities.getContent().stream().map(u -> modelMapper.map(u, CourseSectionDto.class)).collect(Collectors.toList())  :
+                courseEntities.getContent().stream().map(u -> modelMapper.map(u, CourseSectionDto.class)).collect(toList())  :
                 new ArrayList<>();
         PageImpl<CourseSectionDto> courseSectionDtos = new PageImpl<>(list, courseEntities.getPageable(), courseEntities.getTotalPages());
         return new RestAPIResponse(COURSE + DATA_LIST,true,200,courseSectionDtos);

@@ -24,6 +24,7 @@ import uz.oliymahad.user.repository.UserRepository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -65,7 +66,7 @@ public class AdminSectionService implements Section {
     public AdminSectionDto getUser(Pageable pageable, Sections sections) {
         Page<UserEntity> userEntities = userRepository.findAll(pageable);
         List<UserSectionDto> list = userEntities.getContent().size() > 0 ?
-                userEntities.getContent().stream().map(u -> modelMapper.map(u, UserSectionDto.class)).toList() :
+                userEntities.getContent().stream().map(u -> modelMapper.map(u, UserSectionDto.class)).collect(Collectors.toList()) :
                 new ArrayList<>();
         PageImpl<UserSectionDto> userSectionDtos = new PageImpl<>(list, userEntities.getPageable(), userEntities.getTotalPages());
         for (UserSectionDto userSectionDto : userSectionDtos) {
