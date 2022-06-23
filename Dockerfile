@@ -1,7 +1,7 @@
 FROM openjdk:17
 
-COPY target/user-server.jar app-user.jar
+COPY target/oliymahad.jar oliymahad-app.jar
 
 EXPOSE 9090
 
-ENTRYPOINT ["java", "-jar", "/app-user.jar"]
+ENTRYPOINT ["java", "-jar", "/oliymahad-app.jar"]
