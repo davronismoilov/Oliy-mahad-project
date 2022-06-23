@@ -1,6 +1,6 @@
 FROM openjdk:11
 
-COPY target/oliymahad.jar app.jar
+COPY target/oliy-mahad.jar app.jar
 
 EXPOSE 8761
 
