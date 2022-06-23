@@ -1,11 +1,11 @@
 version: '3'
 services:
   app:
-    container_name: oliymahad
-    image: oliymahad
+    container_name: oliy-mahad-eureka
+    image: oliy-mahad-eureka
     build: ./
     ports:
-      - "9090:8080"
+      - "8761:8761"
     volumes:
-      - "$PWD:/test_volume111"
+      - "$PWD:/test_volume"
 
