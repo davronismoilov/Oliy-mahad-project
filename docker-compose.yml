@@ -9,8 +9,7 @@ services:
     volumes:
       - "$PWD:/test_volume"
     depends_on:
-
-      - postgresqldb
+     - postgresqldb
   postgresqldb:
     image: postgres
     ports:
