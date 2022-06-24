@@ -5,8 +5,8 @@ services:
     image: oliy
     build: ./
     ports:
-      - "8761:8761"
-      - "5000:5000"
+      - "9000:8080"
+
     volumes:
       - "$PWD:/test_volume"
 
