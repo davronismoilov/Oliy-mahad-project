@@ -6,6 +6,7 @@ services:
     build: ./
     ports:
       - "8761:8761"
+      - "5000:5000"
     volumes:
       - "$PWD:/test_volume"
 
