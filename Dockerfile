@@ -1,8 +1,8 @@
-FROM openjdk:17
+FROM openjdk:11
 
-COPY target/oliy-mahad.jar app-o.jar
+COPY target/oliymahad-1.1.0.jar app.jar
 
 EXPOSE 8761
 
-ENTRYPOINT ["java", "-jar", "/app-0.jar"]
+ENTRYPOINT ["java", "-jar", "/app.jar"]
 

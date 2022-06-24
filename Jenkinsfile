@@ -22,11 +22,12 @@ pipeline {
 
     stage("docker run") {
       steps{
-//       sh 'java -jar /var/jenkins_home/workspace/oily-mahad-eureka/target/eureka-server.jar'
+
      sh 'docker-compose ps'
      sh 'docker-compose rm'
-//      sh 'docker-compose build'
+     sh 'docker-compose build'
      sh 'docker-compose up -d'
+      sh 'docker-compose ps'
 
       }
     }

@@ -1,11 +1,11 @@
 version: '3'
 services:
   app:
-    container_name: qwqe
-    image: dwded
+    container_name: oliy
+    image: oliy
     build: ./
     ports:
-      - "9090:8080"
+      - "8761:8761"
     volumes:
-      - "$PWD/hbqeqewhkjjn"
+      - "$PWD:/test_volume"
 
